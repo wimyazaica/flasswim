@@ -20,3 +20,10 @@
 .coaches-layout .coach p:not(.coach-role){font-size:15px;line-height:1.75}
 @media(max-width:1000px){.prices-introduction{gap:30px}.intro-with-photo{flex-basis:360px}.coaches-layout{gap:24px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}.coaches-layout .coach{grid-template-columns:minmax(0,1fr);padding:23px}.coaches-layout .coach-portrait{display:none}}
 @media(max-width:680px){.prices-introduction{align-items:stretch}.intro-with-photo{flex-basis:auto;max-width:none}.intro-with-photo img{border-radius:17px}.intro-with-photo p{font-size:16px;margin-top:15px}.coaches-layout{grid-template-columns:minmax(0,1fr);gap:25px}.coaches-moment img{border-radius:20px}.coaches-moment figcaption{font-size:14px;margin-top:12px}.coaches-layout .coach{grid-template-columns:62px minmax(0,1fr);padding:20px;gap:17px}.coaches-layout .coach-portrait{display:block;align-self:start;aspect-ratio:1;border-radius:50%}.coaches-layout .coach-initials{font-size:26px}.coaches-layout .portrait-label,.coaches-layout .coach-number{display:none}.coaches-layout .coach h3{font-size:23px}.coaches-layout .coach p:not(.coach-role){font-size:15px}.pool-scene{margin-top:22px;border-radius:13px}}
+
+/* Portraits remain visible at tablet and mobile sizes. */
+.coaches-layout .coach-portrait:has(img)::before,.coaches-layout .coach-portrait:has(img)::after{display:none}
+.coaches-layout .coach-portrait img{object-position:center 25%}
+.pool-scene{object-fit:cover}
+@media (min-width:681px) and (max-width:1000px){.coaches-layout .coach-portrait{display:flex;width:100%;max-width:180px;aspect-ratio:1}}
+@media (max-width:680px){.coaches-layout .coach-portrait{width:62px;height:62px;aspect-ratio:1}}
