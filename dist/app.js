@@ -4,7 +4,7 @@
 const pools = [
   { id: 'ocsp', name: 'ОЦСП · ЗИЛ', fullName: 'Олимпийский центр синхронного плавания', address: 'Москва, Автозаводская улица, 23А, корпус 4', metro: 'ЗИЛ (МЦК) · Автозаводская', schedule: [['Понедельник', '17:30 · 19:00'], ['Вторник', '17:30 · 18:15 · 19:45'], ['Среда', '17:30'], ['Четверг', '17:30 · 18:15 · 19:45'], ['Суббота', '10:00'], ['Воскресенье', '11:30 · 13:00']], query: 'Олимпийский центр синхронного плавания Автозаводская 23А корпус 4 Москва', mapEmbed: 'https://yandex.ru/map-widget/v1/?mode=search&oid=79694199910&ol=biz&z=16' },
   { id: 'kolomensky', name: 'Коломенский', fullName: 'Бассейн на Коломенском проезде', address: 'Москва, Коломенский проезд, 15А', metro: '', schedule: [['Воскресенье', '13:30 ОФП + 14:45 вода']], query: 'Flash Swim Коломенский проезд 15А Москва', mapEmbed: 'https://yandex.ru/map-widget/v1/?mode=search&oid=205959555192&ol=biz&z=16' },
-  { id: 'plekhanovka', name: 'Плехановка', fullName: 'Бассейн «Плехановка»', address: 'Адрес уточняйте у администратора', metro: '', schedule: [], pendingLocation: true }
+  { id: 'plekhanovka', name: 'Плехановка', fullName: 'Бассейн «Плехановка»', address: 'Москва, Большой Строченовский переулок, 10', metro: '', schedule: [], query: 'Бассейн РЭУ Плеханова Большой Строченовский переулок 10 Москва', mapEmbed: 'https://yandex.ru/map-widget/v1/?mode=search&oid=158313423295&ol=biz&z=16' }
 ];
 const poolPhotos = {
   ocsp: [
