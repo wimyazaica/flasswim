@@ -27,3 +27,11 @@
 .pool-scene{object-fit:cover}
 @media (min-width:681px) and (max-width:1000px){.coaches-layout .coach-portrait{display:flex;width:100%;max-width:180px;aspect-ratio:1}}
 @media (max-width:680px){.coaches-layout .coach-portrait{width:62px;height:62px;aspect-ratio:1}}
+
+/* Larger portraits keep faces recognizable alongside each coach's biography. */
+.coaches-layout .coach{grid-template-columns:176px minmax(0,1fr);align-items:stretch}
+.coaches-layout .coach-portrait{display:block;width:100%;height:auto;min-height:196px;max-width:none;aspect-ratio:4/5;border-radius:16px}
+.coaches-layout .coach-portrait img{object-position:center 25%}
+@media(max-width:1000px){.coaches-layout .coach{grid-template-columns:140px minmax(0,1fr);align-items:stretch}.coaches-layout .coach-portrait{display:block;width:100%;height:auto;min-height:175px;max-width:none;aspect-ratio:4/5}}
+@media(max-width:680px){.coaches-layout .coach{grid-template-columns:120px minmax(0,1fr);gap:16px;padding:16px}.coaches-layout .coach-portrait{width:100%;height:auto;min-height:150px;aspect-ratio:4/5;border-radius:14px}}
+@media(max-width:380px){.coaches-layout .coach{grid-template-columns:100px minmax(0,1fr);gap:13px}.coaches-layout .coach-portrait{min-height:135px}}

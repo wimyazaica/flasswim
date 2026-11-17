@@ -1,0 +1,10 @@
+/* Pool photos stay inside their pool's information panel. */
+.pool-gallery{margin-top:24px;max-width:100%}
+.pool-gallery-image{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:16px;background:#d4efeb}
+.pool-gallery-controls{display:flex;align-items:center;gap:12px;margin-top:10px}
+.pool-gallery-controls button{display:grid;place-items:center;width:40px;height:40px;border:1px solid #88c7c0;border-radius:50%;background:#fff;color:#075363;font-size:20px;cursor:pointer;transition:background .2s,color .2s}
+.pool-gallery-controls button:hover{background:#075f67;color:white}
+.pool-gallery-controls button:focus-visible{outline:3px solid #087f87;outline-offset:3px}
+.pool-photo-count{min-width:44px;text-align:center;color:#315f64;font-weight:700;font-size:13px}
+@media(max-width:680px){.pool-gallery{margin-top:20px}.pool-gallery-image{border-radius:13px}.pool-gallery-controls button{width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.pool-gallery-controls button{transition:none}}
