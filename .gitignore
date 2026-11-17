@@ -1,0 +1,8 @@
+node_modules/
+preview/
+.openai/
+.10k/
+*.zip
+*.tar.gz
+.DS_Store
+Thumbs.db

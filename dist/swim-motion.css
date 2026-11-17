@@ -1,0 +1,29 @@
+/* Clear turquoise lanes, without captions or labels. */
+.swim-divider{--swim-water:#c9f7ef;position:relative;isolation:isolate;height:clamp(112px,9vw,135px);overflow:hidden;background:var(--swim-water)}
+.swim-divider-stage{position:absolute;inset:0;overflow:hidden}
+.swim-divider-stage::before,.swim-divider-stage::after{content:'';position:absolute;inset:-25% -5%;pointer-events:none;background:repeating-radial-gradient(ellipse at 15% 45%,transparent 0 29px,#ffffff50 30px 32px,transparent 33px 67px);transform:rotate(-8deg) scale(1.1);opacity:.55}
+.swim-divider-stage::after{background:repeating-radial-gradient(ellipse at 75% 60%,transparent 0 39px,#ffffff70 40px 42px,transparent 43px 89px);transform:rotate(9deg) scale(1.15);opacity:.45}
+.swim-rope{position:absolute;z-index:2;left:-10px;right:-10px;top:13px;height:8px;border-radius:5px;background:repeating-linear-gradient(90deg,#f33446 0 19px,#fff9e9 19px 23px,#ffd435 23px 42px,#fff9e9 42px 46px,#208bd5 46px 65px,#fff9e9 65px 69px,#ffffff 69px 88px,#fff9e9 88px 92px);box-shadow:0 2px 0 #066e7423,inset 0 2px 0 #ffffff6e}
+.swim-rope-bottom{top:auto;bottom:13px}
+.swim-lane-swimmer{position:absolute;z-index:4;left:0;top:50%;width:174px;height:87px;will-change:transform;pointer-events:none}
+.swimmer-illustration{display:block;width:100%;height:100%;overflow:visible}
+.swimmer-facing{transform-origin:110px 55px;filter:drop-shadow(0 2px 2px #08758026)}
+.limb-upper{fill:#edbd9b}
+.limb-lower{fill:#efc09f}
+.limb-joint{fill:#edbc9b}
+.limb-end{fill:#e8b38e}
+.limb-light{fill:none;stroke:#f8d9bc;stroke-width:.8;stroke-linecap:round;opacity:.65}
+.swimmer-leg-top .limb-upper,.swimmer-leg-bottom .limb-upper{fill:#e9b58f}
+.swimmer-leg-top .limb-lower,.swimmer-leg-bottom .limb-lower{fill:#edbd99}
+.swim-lane-wake{position:absolute;z-index:1;left:-49px;top:22px;width:100px;height:44px;opacity:.55;transform-origin:right center;background:repeating-radial-gradient(ellipse at 100% 50%,transparent 0 9px,#ffffffbe 10px 11px,transparent 12px 22px);border-radius:50%}
+.swim-style-label,.swim-style-number,.swim-lane-label{display:none!important}
+.schedule-swimmer-lane{position:relative;isolation:isolate;width:100%;height:80px;margin:3px 0 14px;overflow:hidden;border-radius:14px;background:#d9fbf5}
+.schedule-swimmer-lane::before{content:'';position:absolute;inset:0;background:repeating-radial-gradient(ellipse at 50% 50%,transparent 0 15px,#ffffffa0 16px 17px,transparent 18px 41px);transform:rotate(-8deg) scale(1.2);opacity:.5}
+.schedule-swimmer-lane .swim-rope{top:8px;height:5px}
+.schedule-swimmer-lane .swim-rope-bottom{top:auto;bottom:8px}
+.schedule-swimmer-lane .swim-lane-swimmer{width:98px;height:49px;top:50%}
+.schedule-swimmer-lane .swim-lane-wake{left:-28px;top:12px;width:60px;height:26px;opacity:.5}
+.schedule-day{position:relative}
+.schedule-day[aria-selected="true"]::after{content:'';position:absolute;bottom:-5px;left:calc(50% - 3px);width:6px;height:6px;border-radius:50%;background:#087f80}
+@media(max-width:680px){.swim-divider{height:108px}.swim-rope{top:10px;height:6px;background-size:92px 100%}.swim-rope-bottom{top:auto;bottom:10px}.swim-lane-swimmer{width:160px;height:80px}.swim-lane-wake{left:-42px;top:19px;width:88px;height:42px}.schedule-swimmer-lane{height:73px;margin-top:6px;border-radius:10px}.schedule-swimmer-lane .swim-lane-swimmer{width:92px;height:46px}.schedule-swimmer-lane .swim-lane-wake{left:-25px;top:11px;width:55px;height:25px}}
+@media(prefers-reduced-motion:reduce){.swim-lane-swimmer{will-change:auto}}

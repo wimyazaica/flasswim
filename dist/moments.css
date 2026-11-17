@@ -1,0 +1,22 @@
+/* Real training moments sit beside the information they illustrate. */
+.prices-introduction{align-items:center;gap:50px}
+.prices-introduction>div:first-child{flex:1;min-width:0}
+.intro-with-photo{flex:0 1 440px;max-width:440px}
+.intro-with-photo img{display:block;width:100%;height:auto;aspect-ratio:1280/718;border-radius:20px}
+.intro-with-photo p{margin:16px 0 0;font-size:16px;line-height:1.7;color:#396c73}
+.pool-scene{display:block;width:100%;height:auto;aspect-ratio:1280/718;margin-top:24px;border-radius:16px}
+.coaches-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:34px;align-items:center}
+.coaches-moment{margin:0;min-width:0}
+.coaches-moment img{display:block;width:100%;height:auto;aspect-ratio:4/3;border-radius:24px}
+.coaches-moment figcaption{font-size:15px;color:#396c73;line-height:1.6;margin-top:15px}
+.coaches-layout .coach-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+.coaches-layout .coach{grid-template-columns:104px minmax(0,1fr);gap:22px;padding:23px;align-items:center}
+.coaches-layout .coach-portrait{aspect-ratio:.82;border-radius:15px}
+.coaches-layout .coach-initials{font-size:42px}
+.coaches-layout .portrait-label{font-size:7px;letter-spacing:.8px;left:10px;top:13px}
+.coaches-layout .coach-number{font-size:7px;letter-spacing:0;left:10px;bottom:13px}
+.coaches-layout .coach h3{font-size:25px;line-height:1.25;margin-bottom:12px}
+.coaches-layout .coach-role{font-size:11px;margin-bottom:10px;line-height:1.5}
+.coaches-layout .coach p:not(.coach-role){font-size:15px;line-height:1.75}
+@media(max-width:1000px){.prices-introduction{gap:30px}.intro-with-photo{flex-basis:360px}.coaches-layout{gap:24px;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}.coaches-layout .coach{grid-template-columns:minmax(0,1fr);padding:23px}.coaches-layout .coach-portrait{display:none}}
+@media(max-width:680px){.prices-introduction{align-items:stretch}.intro-with-photo{flex-basis:auto;max-width:none}.intro-with-photo img{border-radius:17px}.intro-with-photo p{font-size:16px;margin-top:15px}.coaches-layout{grid-template-columns:minmax(0,1fr);gap:25px}.coaches-moment img{border-radius:20px}.coaches-moment figcaption{font-size:14px;margin-top:12px}.coaches-layout .coach{grid-template-columns:62px minmax(0,1fr);padding:20px;gap:17px}.coaches-layout .coach-portrait{display:block;align-self:start;aspect-ratio:1;border-radius:50%}.coaches-layout .coach-initials{font-size:26px}.coaches-layout .portrait-label,.coaches-layout .coach-number{display:none}.coaches-layout .coach h3{font-size:23px}.coaches-layout .coach p:not(.coach-role){font-size:15px}.pool-scene{margin-top:22px;border-radius:13px}}

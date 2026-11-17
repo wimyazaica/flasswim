@@ -1,0 +1,17 @@
+[
+  {
+    "type": "video",
+    "src": "assets/flashswim-training.mp4",
+    "poster": "assets/flashswim-video-poster.jpg",
+    "alt": "Тренировки FLASH SWIM в бассейне",
+    "segmentStart": 0,
+    "segmentEnd": 14.8,
+    "crossfade": 1.2
+  },
+  {
+    "type": "image",
+    "src": "assets/02-camp-departure.jpg",
+    "alt": "Команда FLASH SWIM перед бассейном",
+    "focus": "center"
+  }
+]
