@@ -2,8 +2,9 @@
 
 // Verified public content from flashswim.ru. Change schedules here when groups change.
 const pools = [
-  { id: 'ocsp', name: 'ОЦСП · ЗИЛ', fullName: 'Олимпийский центр синхронного плавания', address: 'Москва, Автозаводская улица, 23А, корпус 4', metro: 'ЗИЛ (МЦК) · Автозаводская', schedule: [['Понедельник', '17:30 · 19:00'], ['Вторник', '17:30 · 18:15 · 19:45'], ['Среда', '17:30 · 19:00'], ['Четверг', '17:30 · 18:15 · 19:45'], ['Суббота', '10:00'], ['Воскресенье', '11:30 · 13:00']], query: 'Олимпийский центр синхронного плавания Автозаводская 23А корпус 4 Москва', mapEmbed: 'https://yandex.ru/map-widget/v1/?mode=search&oid=79694199910&ol=biz&z=16' },
-  { id: 'kolomensky', name: 'Коломенский', fullName: 'Бассейн на Коломенском проезде', address: 'Москва, Коломенский проезд, 15А', metro: '', schedule: [], query: 'Flash Swim Коломенский проезд 15А Москва', mapEmbed: 'https://yandex.ru/map-widget/v1/?mode=search&oid=205959555192&ol=biz&z=16' }
+  { id: 'ocsp', name: 'ОЦСП · ЗИЛ', fullName: 'Олимпийский центр синхронного плавания', address: 'Москва, Автозаводская улица, 23А, корпус 4', metro: 'ЗИЛ (МЦК) · Автозаводская', schedule: [['Понедельник', '17:30 · 19:00'], ['Вторник', '17:30 · 18:15 · 19:45'], ['Среда', '17:30'], ['Четверг', '17:30 · 18:15 · 19:45'], ['Суббота', '10:00'], ['Воскресенье', '11:30 · 13:00']], query: 'Олимпийский центр синхронного плавания Автозаводская 23А корпус 4 Москва', mapEmbed: 'https://yandex.ru/map-widget/v1/?mode=search&oid=79694199910&ol=biz&z=16' },
+  { id: 'kolomensky', name: 'Коломенский', fullName: 'Бассейн на Коломенском проезде', address: 'Москва, Коломенский проезд, 15А', metro: '', schedule: [['Воскресенье', '13:30 ОФП + 14:45 вода']], query: 'Flash Swim Коломенский проезд 15А Москва', mapEmbed: 'https://yandex.ru/map-widget/v1/?mode=search&oid=205959555192&ol=biz&z=16' },
+  { id: 'plekhanovka', name: 'Плехановка', fullName: 'Бассейн «Плехановка»', address: 'Адрес уточняйте у администратора', metro: '', schedule: [], pendingLocation: true }
 ];
 const coaches = [
   {name:'Алексей Мунтяну', initials:'АМ', role:'Групповые занятия', description:'КМС по водному поло. Бронзовый призёр Первенства России, серебряный призёр Спартакиады молодёжи.'},
@@ -30,6 +31,7 @@ function updateContactLinks() {
 }
 
 function setMap(pool) {
+  if (pool.pendingLocation) return;
   byId('map-select').value = pool.id;
   byId('location-address').textContent = pool.address;
   const params = new URLSearchParams({rtext: `${routeOrigin}~${pool.address}`, rtt: byId('route-mode').value});
@@ -48,13 +50,13 @@ byId('route-form').addEventListener('submit', event => {
   const nextOrigin = byId('route-from').value.replace(/~/g, ' ').trim();
   if (!nextOrigin) { byId('route-from').value = ''; byId('route-from').reportValidity(); return; }
   routeOrigin = nextOrigin;
-  setMap(activePool);
+  setMap(pools.find(pool => pool.id === byId('map-select').value) || pools[0]);
 });
-byId('route-mode').addEventListener('change', () => { if (routeOrigin) setMap(activePool); });
+byId('route-mode').addEventListener('change', () => { if (routeOrigin) setMap(pools.find(pool => pool.id === byId('map-select').value) || pools[0]); });
 byId('route-reset').addEventListener('click', () => {
   routeOrigin = '';
   byId('route-from').value = '';
-  setMap(activePool);
+  setMap(pools.find(pool => pool.id === byId('map-select').value) || pools[0]);
   byId('route-from').focus();
 });
 
@@ -70,8 +72,8 @@ function setPool(id, focus = false) {
   const panel = byId('pool-panel');
   panel.setAttribute('aria-labelledby', 'tab-' + pool.id);
   const shortDays = {Понедельник:'ПН',Вторник:'ВТ',Среда:'СР',Четверг:'ЧТ',Суббота:'СБ',Воскресенье:'ВС'};
-  const scheduleMarkup = pool.schedule.length ? `<div class="weekdays" role="tablist" aria-label="Дни групповых тренировок">${pool.schedule.map((row,index)=>`<button type="button" class="schedule-day" role="tab" id="schedule-day-${index}" data-day-index="${index}" aria-label="${escapeHtml(row[0])}" aria-selected="${index===0}" aria-controls="pool-day-panel" tabindex="${index===0?0:-1}">${shortDays[row[0]]}<small>${index<4?'БУДНИ':'ВЫХОДНОЙ'}</small></button>`).join('')}</div><div class="day-details" id="pool-day-panel" role="tabpanel" aria-labelledby="schedule-day-0" aria-live="polite"></div>` : '<p class="schedule-empty">Расписание и доступные форматы занятий в этом бассейне уточняйте у администратора.</p>';
-  panel.innerHTML = `<div class="pool-info"><p class="eyebrow">ЗДЕСЬ МЫ ПЛАВАЕМ</p><h3>${escapeHtml(pool.fullName || pool.name)}</h3><p>${escapeHtml(pool.address)}</p>${pool.metro ? `<div class="metro"><span></span>${escapeHtml(pool.metro)}</div>` : ''}<a class="text-link" href="${mapUrl(pool)}" target="_blank" rel="noopener noreferrer">Посмотреть на карте <span>↗</span></a>${pool.id === 'ocsp' ? '<div class="personal-schedule"><span class="type-label">ПЕРСОНАЛЬНЫЕ ЗАНЯТИЯ</span><p>Будни — после 16:00<br>Выходные — в течение дня</p></div>' : ''}</div><div class="pool-schedule"><p class="schedule-head">${pool.schedule.length ? 'ГРУППЫ · ТРЕНЕР АЛЕКСЕЙ МУНТЯНУ' : 'ПОДБЕРЁМ УДОБНОЕ ВРЕМЯ'}</p>${scheduleMarkup}<a class="button button-primary" href="#contacts" data-program="Бесплатное занятие в группе" data-pool="${pool.id}">Записаться в этот бассейн <span>↗</span></a></div>`;
+  const scheduleMarkup = pool.schedule.length ? `<div class="weekdays" role="tablist" aria-label="Дни групповых тренировок">${pool.schedule.map((row,index)=>`<button type="button" class="schedule-day" role="tab" id="schedule-day-${index}" data-day-index="${index}" aria-label="${escapeHtml(row[0])}" aria-selected="${index===0}" aria-controls="pool-day-panel" tabindex="${index===0?0:-1}">${shortDays[row[0]]}<small>${['Суббота','Воскресенье'].includes(row[0])?'ВЫХОДНОЙ':'БУДНИ'}</small></button>`).join('')}</div><div class="day-details" id="pool-day-panel" role="tabpanel" aria-labelledby="schedule-day-0" aria-live="polite"></div>` : '<p class="schedule-empty">Расписание и доступные форматы занятий в этом бассейне уточняйте у администратора.</p>';
+  panel.innerHTML = `<div class="pool-info"><p class="eyebrow">ЗДЕСЬ МЫ ПЛАВАЕМ</p><h3>${escapeHtml(pool.fullName || pool.name)}</h3><p>${escapeHtml(pool.address)}</p>${pool.metro ? `<div class="metro"><span></span>${escapeHtml(pool.metro)}</div>` : ''}${pool.pendingLocation ? '' : `<a class="text-link" href="${mapUrl(pool)}" target="_blank" rel="noopener noreferrer">Посмотреть на карте <span>↗</span></a>`}${pool.id === 'ocsp' ? '<div class="personal-schedule"><span class="type-label">ПЕРСОНАЛЬНЫЕ ЗАНЯТИЯ</span><p>Будни — после 16:00<br>Выходные — в течение дня</p></div>' : ''}</div><div class="pool-schedule"><p class="schedule-head">${pool.schedule.length ? (pool.id === 'ocsp' ? 'ГРУППЫ · ТРЕНЕР АЛЕКСЕЙ МУНТЯНУ' : 'ГРУППОВЫЕ ЗАНЯТИЯ') : 'ПОДБЕРЁМ УДОБНОЕ ВРЕМЯ'}</p>${scheduleMarkup}<a class="button button-primary" href="#contacts" data-program="Бесплатное занятие в группе" data-pool="${pool.id}">Записаться в этот бассейн <span>↗</span></a></div>`;
   if(pool.schedule.length) setDay(0);
   setMap(pool);
   if (focus) byId('tab-' + pool.id).focus();
@@ -88,7 +90,7 @@ function setDay(index, focus = false) {
   });
   const details=byId('pool-day-panel');
   details.setAttribute('aria-labelledby','schedule-day-'+index);
-  details.innerHTML=`<h4>${escapeHtml(row[0])}</h4><p class="day-description">Групповая тренировка · выберите удобное время</p><div class="session-times">${row[1].split(' · ').map(time=>`<button type="button" class="time-choice" data-time="${time}" data-day="${escapeHtml(row[0])}" aria-pressed="false">${time}</button>`).join('')}</div>`;
+  details.innerHTML=`<h4>${escapeHtml(row[0])}</h4><p class="day-description">${activePool.id === 'kolomensky' ? 'ОФП и вода — одна тренировка' : 'Групповая тренировка · выберите удобное время'}</p><div class="session-times">${row[1].split(' · ').map(time=>`<button type="button" class="time-choice" data-time="${time}" data-day="${escapeHtml(row[0])}" aria-pressed="false">${time}</button>`).join('')}</div>`;
   document.dispatchEvent(new CustomEvent('flashswim:daychange'));
   if(focus)byId('schedule-day-'+index).focus();
 }
@@ -115,7 +117,7 @@ byId('pool-panel').addEventListener('keydown',event=>{
 });
 
 byId('pool-tabs').innerHTML = pools.map((pool, index) => `<button type="button" class="pool-tab" id="tab-${pool.id}" role="tab" aria-controls="pool-panel" aria-selected="${index === 0}" tabindex="${index === 0 ? '0' : '-1'}" data-pool="${pool.id}">${escapeHtml(pool.name)}</button>`).join('');
-byId('map-select').innerHTML = pools.map(pool => `<option value="${pool.id}">${escapeHtml(pool.name)}</option>`).join('');
+byId('map-select').innerHTML = pools.filter(pool => !pool.pendingLocation).map(pool => `<option value="${pool.id}">${escapeHtml(pool.name)}</option>`).join('');
 byId('pool-tabs').addEventListener('click', event => {
   const button = event.target.closest('.pool-tab');
   if (button) setPool(button.dataset.pool);
