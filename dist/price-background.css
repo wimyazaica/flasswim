@@ -1,0 +1,133 @@
+/* Photographs stay behind the prices. The lower/right areas reveal more of the
+   image, while a light glass layer protects the numerals and conditions. */
+#prices .price-grid > .price-card {
+  --price-glass-rgb: 249, 255, 250;
+  --price-photo-opacity: .84;
+  --price-photo-position: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: rgba(var(--price-glass-rgb), .82);
+  border-left-color: #bddfd4;
+  border-right-color: #bddfd4;
+  border-bottom-color: #bddfd4;
+  box-shadow: inset 0 0 0 1px #ffffffb5, 0 10px 28px #0759660a;
+  color: #073e47;
+}
+
+#prices .price-card:nth-child(1) {
+  --price-photo: url('assets/08-water-training.jpg');
+  --price-photo-position: 48% 42%;
+}
+#prices .price-card:nth-child(2) {
+  --price-photo: url('assets/09-swimming-lanes.jpg');
+  --price-photo-position: 68% 50%;
+}
+#prices .price-card:nth-child(3) {
+  --price-photo: url('assets/05-coach-swimmers.jpg');
+  --price-photo-position: 56% 40%;
+}
+#prices .price-card:nth-child(4) {
+  --price-photo: url('assets/02-camp-departure.jpg');
+  --price-photo-position: 55% 50%;
+}
+
+#prices .price-grid > .price-card::before,
+#prices .price-grid > .price-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+#prices .price-grid > .price-card::before {
+  z-index: 0;
+  background-image: var(--price-photo);
+  background-size: cover;
+  background-position: var(--price-photo-position);
+  background-repeat: no-repeat;
+  opacity: var(--price-photo-opacity);
+  filter: saturate(.76) contrast(.96);
+}
+#prices .price-grid > .price-card::after {
+  z-index: 1;
+  background:
+    linear-gradient(90deg,
+      rgba(var(--price-glass-rgb), .63) 0%,
+      rgba(var(--price-glass-rgb), .46) 48%,
+      rgba(var(--price-glass-rgb), .22) 100%),
+    linear-gradient(180deg,
+      rgba(var(--price-glass-rgb), .32) 0%,
+      rgba(var(--price-glass-rgb), .12) 24%,
+      rgba(var(--price-glass-rgb), .56) 39%,
+      rgba(var(--price-glass-rgb), .66) 59%,
+      rgba(var(--price-glass-rgb), .25) 78%,
+      rgba(var(--price-glass-rgb), .02) 100%);
+}
+#prices .price-grid > .price-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* The featured option keeps its turquoise identity and existing dark CTA. */
+#prices .price-grid > .price-card.featured {
+  --price-glass-rgb: 181, 248, 228;
+  --price-photo-opacity: .78;
+  background-color: #9ef1df;
+  border-left-color: #80cdbb;
+  border-right-color: #80cdbb;
+  border-bottom-color: #80cdbb;
+  box-shadow: inset 0 0 0 1px #dffff2a8, 0 12px 30px #07837913;
+}
+#prices .price-card .price {
+  color: #073e47;
+  border-radius: 9px;
+  background: linear-gradient(90deg,
+    rgba(var(--price-glass-rgb), .82),
+    rgba(var(--price-glass-rgb), .48) 60%,
+    rgba(var(--price-glass-rgb), 0));
+  box-shadow: -7px 0 0 rgba(var(--price-glass-rgb), .82);
+}
+#prices .price-card .card-description,
+#prices .price-card .features,
+#prices .price-card .price > span {
+  color: #214f58;
+}
+#prices .price-card .features {
+  border-top-color: #85b7ad9c;
+}
+#prices .price-card .button-outline {
+  background: #fafff9eb;
+  border-color: #76a99d;
+  color: #074b55;
+  box-shadow: 0 3px 10px #0759650a;
+}
+#prices .price-card .button-outline:hover {
+  background: #e4fff3;
+  border-color: #267d75;
+}
+#prices .price-grid > .price-card:hover {
+  box-shadow: inset 0 0 0 1px #ffffffcf, 0 16px 35px #07596618;
+}
+
+@media (max-width: 600px) {
+  #prices .price-grid > .price-card::after {
+    background:
+      linear-gradient(90deg,
+        rgba(var(--price-glass-rgb), .66),
+        rgba(var(--price-glass-rgb), .25)),
+      linear-gradient(180deg,
+        rgba(var(--price-glass-rgb), .35) 0%,
+        rgba(var(--price-glass-rgb), .13) 25%,
+        rgba(var(--price-glass-rgb), .61) 40%,
+        rgba(var(--price-glass-rgb), .70) 61%,
+        rgba(var(--price-glass-rgb), .23) 82%,
+        rgba(var(--price-glass-rgb), .02) 100%);
+  }
+}
+@media (forced-colors: active) {
+  #prices .price-grid > .price-card::before,
+  #prices .price-grid > .price-card::after { display: none; }
+  #prices .price-grid > .price-card,
+  #prices .price-grid > .price-card.featured,
+  #prices .price-card .price { background: Canvas; color: CanvasText; box-shadow: none; }
+}

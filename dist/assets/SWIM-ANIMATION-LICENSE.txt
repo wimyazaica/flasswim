@@ -1,0 +1,55 @@
+АНИМАЦИИ ПЛАВАНИЯ — АВТОРЫ, ИСТОЧНИКИ И ЛИЦЕНЗИЯ
+
+Автор исходных моделей и анимаций: Fxqf, 2009.
+Страница автора: https://commons.wikimedia.org/wiki/User:Fxqf
+
+Для всех четырёх выбранных исходников и производных PNG-атласов
+используется общая лицензия Creative Commons Attribution-ShareAlike
+3.0 Unported (CC BY-SA 3.0).
+
+Лицензия: https://creativecommons.org/licenses/by-sa/3.0/
+Описание на русском: https://creativecommons.org/licenses/by-sa/3.0/deed.ru
+Полный текст: https://creativecommons.org/licenses/by-sa/3.0/legalcode
+
+ИСХОДНЫЕ МАТЕРИАЛЫ И ПРЕДЫДУЩИЕ ИЗМЕНЕНИЯ
+
+1. Butterfly stroke3 without text.gif — баттерфляй / дельфин.
+   Автор: Fxqf. Версия без текста: SyntaxTerror, 22 августа 2022 года.
+   https://commons.wikimedia.org/wiki/File:Butterfly_stroke3_without_text.gif
+
+2. Backstroke.gif — плавание на спине.
+   Автор: Fxqf. Текст удалён Isochrone, 25 августа 2022 года.
+   https://commons.wikimedia.org/wiki/File:Backstroke.gif
+
+3. Breaststroke2.gif — брасс.
+   Автор: Fxqf. Текст удалён Isochrone, 25 августа 2022 года.
+   https://commons.wikimedia.org/wiki/File:Breaststroke2.gif
+
+4. Freestyle swimming.gif — кроль.
+   Автор: Fxqf. Темп изменён Wilfried Elmenreich, 24 июня 2011 года.
+   Текст удалён Palosirkka, 23 сентября 2013 года; нижняя кисть
+   пловца сохранена в исправленной версии от 24 сентября 2013 года.
+   https://commons.wikimedia.org/wiki/File:Freestyle_swimming.gif
+
+ПРОИЗВОДНЫЕ МАТЕРИАЛЫ ДЛЯ САЙТА
+
+- swim-butterfly-atlas.png
+- swim-backstroke-atlas.png
+- swim-breaststroke-atlas.png
+- swim-freestyle-atlas.png
+
+Изменения относительно выбранных исходников:
+- 24 кадра каждого цикла упакованы в PNG-атлас для canvas;
+- последовательность поз и исходные интервалы кадров сохранены;
+- однотонный студийный фон и линия воды удалены, добавлена прозрачность;
+- плавки перекрашены в красный цвет;
+- размер и зеркальное отображение при показе задаются через CSS.
+
+Производные атласы распространяются по CC BY-SA 3.0.
+Модели и исходные анимации не являются авторской работой школы FLASH SWIM.
+
+При дальнейшем использовании указывайте авторов, источник, лицензию
+и внесённые изменения. Для производных материалов сохраняйте условия
+CC BY-SA 3.0. Условия и точная формулировка лицензии приведены по ссылкам выше.
+
+Страница атрибуции сайта: ../credits.html

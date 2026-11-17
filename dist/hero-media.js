@@ -3,6 +3,15 @@
   'use strict';
   const host = document.querySelector('.hero-water');
   if (!host) return;
+  const frameWindow = host.querySelector('.hero-film-frame') || host;
+  function sizeFilmFrame() {
+    const width = Math.max(host.clientWidth, host.clientHeight * 916 / 402);
+    frameWindow.style.setProperty('--film-frame-width', width.toFixed(2) + 'px');
+    frameWindow.style.setProperty('--film-frame-height', (width * 402 / 916).toFixed(2) + 'px');
+  }
+  sizeFilmFrame();
+  if ('ResizeObserver' in window) new ResizeObserver(sizeFilmFrame).observe(host);
+  else window.addEventListener('resize', sizeFilmFrame);
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   let playlist;
   try {
@@ -56,7 +65,7 @@
       host.classList.remove('has-film');
     });
     film.src = item.src;
-    host.append(film);
+    frameWindow.append(film);
     return film;
   });
 

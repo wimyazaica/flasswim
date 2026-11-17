@@ -8,8 +8,9 @@
   <meta name="description" content="Плавание в группах, персональные и сплит-занятия в Москве. Цены, расписание, тренеры, спортивные сборы и запись на бесплатное первое занятие в группе.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/onest-extrabold.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="ocean.css"><link rel="stylesheet" href="swim-motion.css"><link rel="stylesheet" href="readability.css"><link rel="stylesheet" href="hero-layout.css"><link rel="stylesheet" href="locations.css"><link rel="stylesheet" href="moments.css"><link rel="stylesheet" href="camp-gallery.css">
+  <link rel="stylesheet" href="ocean.css"><link rel="stylesheet" href="swim-motion.css"><link rel="stylesheet" href="readability.css"><link rel="stylesheet" href="hero-layout.css"><link rel="stylesheet" href="locations.css"><link rel="stylesheet" href="moments.css"><link rel="stylesheet" href="camp-gallery.css"><link rel="stylesheet" href="price-background.css">
   <script src="app.js" defer></script>
+  <script src="swim-assets.js" defer></script>
   <script src="swim-motion.js" defer></script>
   <script src="ocean.js" defer></script>
   <script src="hero-media.js" defer></script>
@@ -28,6 +29,7 @@
 </header>
 <main id="top" tabindex="-1">
   <section class="ocean-hero" aria-labelledby="hero-title">
+    <div class="hero-water"><div class="hero-film-frame"><img class="hero-fallback" src="assets/02-camp-departure.jpg" alt="" width="1280" height="960" fetchpriority="high"></div></div>
     <div class="hero-shade" aria-hidden="true"></div><div class="water-glints" aria-hidden="true"></div>
     <div class="container hero-content">
       <div class="hero-copy"><p class="eyebrow hero-kicker"><span class="live-dot"></span> FLASH SWIM · ШКОЛА ПЛАВАНИЯ В МОСКВЕ</p>
@@ -36,7 +38,6 @@
       <p class="hero-offer"><span aria-hidden="true"></span>Первое занятие в группе — бесплатно</p>
       <div class="hero-actions"><a class="button button-sun" href="#contacts" data-program="Бесплатное занятие в группе">Хочу на пробное! <span>↗</span></a><a class="hero-schedule-link" href="#schedule">Смотреть расписание <span>→</span></a></div>
       </div>
-      <div class="hero-water"><img class="hero-fallback" src="assets/02-camp-departure.jpg" alt="Команда FLASH SWIM перед бассейном" width="1280" height="960" fetchpriority="high"></div>
       <div class="hero-facts"><div><strong>С нуля</strong><span>до уверенности в воде</span></div><div><strong>В своём темпе</strong><span>в группе или с личным тренером</span></div><div><strong>Вместе</strong><span>на тренировках и сборах</span></div></div>
     </div>
     <svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 38C210 96 374-11 631 32S1030 89 1440 28V80H0Z"/></svg>
@@ -44,7 +45,7 @@
   <div class="benefit-band"><div class="container"><span>БОЛЬШЕ ВОДЫ</span><b aria-hidden="true">✳</b><span>БОЛЬШЕ УВЕРЕННОСТИ</span><b aria-hidden="true">✳</b><span>БОЛЬШЕ ДРУЗЕЙ</span><b aria-hidden="true">✳</b><span>FLASH SWIM</span></div></div>
 
   <section class="section container" id="prices" aria-labelledby="prices-title">
-    <div class="section-heading prices-introduction"><div><p class="eyebrow">ПЛАВАНИЕ ПОД ВАШ РИТМ</p><h2 id="prices-title">ВСЕ В ВОДУ!<br><span class="accent">КАЖДОМУ СВОЙ ФОРМАТ.</span></h2></div><div class="section-intro intro-with-photo"><img src="assets/08-water-training.jpg" alt="Ученики FLASH SWIM на групповой тренировке у бортика бассейна" width="1280" height="718" loading="lazy" decoding="async"><p>Вместе веселее. Персонально — больше внимания.<br>Выбирайте то, что подходит именно вам.</p></div></div>
+    <div class="section-heading prices-introduction"><div><p class="eyebrow">ПЛАВАНИЕ ПОД ВАШ РИТМ</p><h2 id="prices-title">ВСЕ В ВОДУ!<br><span class="accent">КАЖДОМУ СВОЙ ФОРМАТ.</span></h2></div><p class="section-intro">Вместе веселее. Персонально — больше внимания.<br>Выбирайте то, что подходит именно вам.</p></div>
     <div class="price-grid">
       <article class="price-card"><div class="card-top"><span class="type-label">В ГРУППЕ</span><span class="format-icon" aria-hidden="true">≈</span></div><h3>Лёгкий старт</h3><p class="card-description">4 занятия в месяц</p><div class="price">8 000 <span>₽ / месяц</span></div><ul class="features"><li>Бронь места в группе</li><li>Перенос в течение месяца</li></ul><a class="button button-outline" href="#contacts" data-program="Группа · 4 занятия · 8 000 ₽">Записаться в группу <span>↗</span></a></article>
       <article class="price-card featured"><div class="card-top"><span class="type-label">В ГРУППЕ</span><span class="popular-label">БОЛЬШЕ ПРАКТИКИ</span></div><h3>В своём ритме</h3><p class="card-description">8 занятий в месяц</p><div class="price">12 000 <span>₽ / месяц</span></div><ul class="features"><li>Бронь места в группе</li><li>Перенос в течение месяца</li></ul><a class="button button-dark" href="#contacts" data-program="Группа · 8 занятий · 12 000 ₽">Записаться в группу <span>↗</span></a></article>
@@ -140,5 +141,5 @@
     </div>
   </section>
 </main>
-<footer class="footer"><div class="container footer-top"><a class="brand" href="#top"><img src="favicon.svg" alt="" width="36" height="36"><span>FLASH<span class="brand-light">SWIM</span><small>ВАША СТИХИЯ — ВОДА</small></span></a><a href="https://t.me/flashswim" target="_blank" rel="noopener noreferrer">Наш Telegram ↗</a><a href="#contacts">Связаться ↗</a></div><div class="container footer-bottom"><span>© <span id="year">2026</span> FLASH SWIM</span><div><a href="https://flashswim.ru/page85454586.html" target="_blank" rel="noopener noreferrer">Публичная оферта ↗</a><a href="https://flashswim.ru/page85449166.html" target="_blank" rel="noopener noreferrer">Политика конфиденциальности ↗</a></div><a href="#top">Наверх ↑</a></div></footer>
+<footer class="footer"><div class="container footer-top"><a class="brand" href="#top"><img src="favicon.svg" alt="" width="36" height="36"><span>FLASH<span class="brand-light">SWIM</span><small>ВАША СТИХИЯ — ВОДА</small></span></a><a href="https://t.me/flashswim" target="_blank" rel="noopener noreferrer">Наш Telegram ↗</a><a href="#contacts">Связаться ↗</a></div><div class="container footer-bottom"><span>© <span id="year">2026</span> FLASH SWIM</span><div><a href="https://flashswim.ru/page85454586.html" target="_blank" rel="noopener noreferrer">Публичная оферта ↗</a><a href="https://flashswim.ru/page85449166.html" target="_blank" rel="noopener noreferrer">Политика конфиденциальности ↗</a><a class="animation-credit-link" href="credits.html">Анимации: Fxqf и Wikimedia Commons · CC BY-SA 3.0</a></div><a href="#top">Наверх ↑</a></div></footer>
 </body></html>
